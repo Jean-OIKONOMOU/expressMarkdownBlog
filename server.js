@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
+const methodOverride  = require('method-override')
 const app = express()
 
 mongoose.connect('mongodb://localhost/blog', { 
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs')
 
 // this next line allows us to access any element of the front end in order to get data from it (like a form or anything else)
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method')) // gives us access to DELETE/PUT/UPDATE and more instead of just having GET and POST
 
 
 // this is the default landing page of the site located at '/'
