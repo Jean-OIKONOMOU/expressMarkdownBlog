@@ -1,0 +1,35 @@
+<%- include('_header_info') %>
+<title></title>
+</head>
+<style>
+#main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main .heading {
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+#main .content {
+  flex: 1;
+}
+</style>
+<body>
+    <div id="main" class="container py-2">
+        <div class="heading">
+            <h1 class="mb-2"><%= article.title %></h1>
+            <pre class="mb-4">Created on : <%= article.createdAt.toDateString() %></pre>
+            <a href="/" class="btn btn-secondary">All Articles</a>
+            <a href="/articles/edit<%= article.id %>" class="btn btn-info">Edit</a>
+            <a href="/articles/new" class="btn btn-success">New Article</a>
+        </div>
+        
+        <div class="content border border-dark p-2 mt-4">
+            <%= article.markdown %>
+        </div>
+    </div>
+</body>
+</html>
