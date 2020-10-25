@@ -1,6 +1,17 @@
 <%- include('_header_info') %>
 <title>Blog</title>
 </head>
+<style>
+html::-webkit-scrollbar, *::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html, * {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>
 <body class="bg-dark">
     <div class="container py-4">
         <h1 class="mb-4 text-white">Blog Articles</h1>
@@ -10,12 +21,13 @@
                 <div class="card-body">
                     <h3><%= article.title %></h3>
                     <div class="card-subtitle text-muted mb-2">
-                        <pre>Created on : <%= article.createdAt.toDateString() %> </pre>
+                        <pre>Created on <span class="text-danger">:</span> <%= article.createdAt.toDateString() %> </pre>
                     </div>
                     <div class="card-text mb-2">
                         <p><%= article.description %></p>
                         <div>
                             <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+                            <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
                             <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
