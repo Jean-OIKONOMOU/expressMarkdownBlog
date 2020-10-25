@@ -5,7 +5,7 @@ const articleRouter = require('./routes/articles')
 const app = express()
 
 mongoose.connect('mongodb://localhost/blog', { 
-    useNewUrlParser: true, useUnifiedTopology: true })
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     //https://stackoverflow.com/questions/59455725/install-mongodb-on-manjaro#:~:text=Simply%20clone%20the%20repo%20in,command%20to%20make%20the%20package.
 
 
