@@ -17,17 +17,17 @@
   flex: 1;
 }
 </style>
-<body>
+<body class="bg-dark">
     <div id="main" class="container py-2">
         <div class="heading">
-            <h1 class="mb-2"><%= article.title %></h1>
-            <pre class="mb-4">Created on : <%= article.createdAt.toDateString() %></pre>
+            <h1 class="mb-2 text-white"><%= article.title %></h1>
+            <pre class="mb-4 text-white">Created on : <%= article.createdAt.toDateString() %></pre>
             <a href="/" class="btn btn-secondary">All Articles</a>
             <a href="/articles/edit<%= article.id %>" class="btn btn-info">Edit</a>
             <a href="/articles/new" class="btn btn-success">New Article</a>
         </div>
         
-        <div class="content border border-dark p-2 mt-4">
+        <div class="content border border-primary p-2 mt-4 text-white">
             <%= article.markdown %>
         </div>
     </div>
